@@ -30,8 +30,8 @@ def main():
         
         st.subheader("Pleas enter the following inputs:")
         
-        first_term_gpa = st.number_input("First Term GPA:", 0.0, 4.5, value=None, step=0.01, format="%2f")
-        second_term_gpa = st.number_input("Second Term GPA:", 0.0, 4.5, value=None, step=0.01, format="%2f")
+        first_term_gpa = st.number_input("First Term GPA:", 0.0, 4.5, value=None)
+        second_term_gpa = st.number_input("Second Term GPA:", 0.0, 4.5, value=None)
         first_language = st.radio("First Language:", options=options_first_language, index=None)
         funding = st.selectbox("Funding:", options=options_funding, index=None)
         school = st.selectbox("School:", options=options_school, index=None)
