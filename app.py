@@ -70,3 +70,6 @@ def main():
                 
             else:
                 st.write("### Dropout")
+                
+if __name__ == '__main__':
+    main()
