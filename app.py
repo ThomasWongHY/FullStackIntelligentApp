@@ -30,8 +30,8 @@ def main():
         
         st.subheader("Pleas enter the following inputs:")
         
-        first_term_gpa = st.number_input("First Term GPA:", 0, 4.5, value=None, format="%2f")
-        second_term_gpa = st.number_input("Second Term GPA:", 0, 4.5, value=None, format="%2f")
+        first_term_gpa = st.number_input("First Term GPA:", 0.0, 4.5, value=None, step=0.01, format="%2f")
+        second_term_gpa = st.number_input("Second Term GPA:", 0.0, 4.5, value=None, step=0.01, format="%2f")
         first_language = st.radio("First Language:", options=options_first_language, index=None)
         funding = st.selectbox("Funding:", options=options_funding, index=None)
         school = st.selectbox("School:",options=options_school, index=None)
@@ -41,8 +41,8 @@ def main():
         gender = st.radio("Gender:",options=options_gender, index=None)
         prev_edu = st.radio("Previous Education:",options=options_prev_edu, index=None)
         age = st.selectbox("Age Group:",options=options_age, index=None)
-        avg_mark = st.number_input("High School Average Mark:", 0, 100, value=None, format="%1f")
-        math_score = st.number_input("Math Score:", 0, 50, value=None, format="%1f")
+        avg_mark = st.number_input("High School Average Mark:", 0, 100, value=None, step=0.1, format="%1f")
+        math_score = st.number_input("Math Score:", 0, 50, value=None, step=0.1, format="%1f")
         eng_grade = st.selectbox("English Grade:",options=options_eng_grade, index=None)
         
         submit = st.form_submit_button("Predict")
