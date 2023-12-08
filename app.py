@@ -41,8 +41,8 @@ def main():
         gender = st.radio("Gender:", options=options_gender, index=None, key="4")
         prev_edu = st.radio("Previous Education:", options=options_prev_edu, index=None, key="5")
         age = st.selectbox("Age Group:",options=options_age, index=None)
-        avg_mark = st.number_input("High School Average Mark:", 0, 100, value=None, step=0.1, format="%1f")
-        math_score = st.number_input("Math Score:", 0, 50, value=None, step=0.1, format="%1f")
+        avg_mark = st.number_input("High School Average Mark:", 0.0, 100.0, value=None, step=0.1, format="%1f")
+        math_score = st.number_input("Math Score:", 0.0, 50.0, value=None, step=0.1, format="%1f")
         eng_grade = st.selectbox("English Grade:",options=options_eng_grade, index=None)
         
         submit = st.form_submit_button("Predict")
