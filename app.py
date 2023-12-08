@@ -30,8 +30,8 @@ def main():
         
         st.subheader("Pleas enter the following inputs:")
         
-        first_term_gpa = st.number_input("First Term GPA:", 0, 4.5, value=None, format="%f")
-        second_term_gpa = st.number_input("Second Term GPA:", 0, 4.5, value=None, format="%f")
+        first_term_gpa = st.number_input("First Term GPA:", 0, 4.5, value=None, format="%2f")
+        second_term_gpa = st.number_input("Second Term GPA:", 0, 4.5, value=None, format="%2f")
         first_language = st.radio("First Language:", options=options_first_language, index=None)
         funding = st.selectbox("Funding:", options=options_funding, index=None)
         school = st.selectbox("School:",options=options_school, index=None)
@@ -47,29 +47,29 @@ def main():
         
         submit = st.form_submit_button("Predict")
         
-        if submit:
-            input_arr = []
-            cat_list = [options_first_language, options_funding, options_fast_track, options_coop,
-                        options_residency, options_gender, options_prev_edu, options_age]
-            
-            cat_array = [first_language, funding, fast_track, coop, residency, gender, prev_edu, age]
-            
-            for i in range(len(cat_list)):
-                encoder = list(range(1, len(cat_list[i]) + 1))
-                for j in range(len(cat_list[i])):
-                    if cat_list[i][j] is range(len(cat_array[i])):
-                        input_arr.append(encoder[j])
-            
-            num_arr = [first_term_gpa, second_term_gpa]
-            pred_arr = np.array(num_arr + input_arr).reshape(1,-1)              
+    if submit:
+        input_arr = []
+        cat_list = [options_first_language, options_funding, options_fast_track, options_coop,
+                    options_residency, options_gender, options_prev_edu, options_age]
         
-            prediction = model.predict(pred_arr)
+        cat_array = [first_language, funding, fast_track, coop, residency, gender, prev_edu, age]
+        
+        for i in range(len(cat_list)):
+            encoder = list(range(1, len(cat_list[i]) + 1))
+            for j in range(len(cat_list[i])):
+                if cat_list[i][j] is range(len(cat_array[i])):
+                    input_arr.append(encoder[j])
+        
+        num_arr = [first_term_gpa, second_term_gpa]
+        pred_arr = np.array(num_arr + input_arr).reshape(1,-1)              
+    
+        prediction = model.predict(pred_arr)
+        
+        if prediction == 1:
+            st.write("### The student is predicted to PERSIST in the program")
             
-            if prediction == 1:
-                st.write("### Ongoing")
-                
-            else:
-                st.write("### Dropout")
+        else:
+            st.write("### The student is predicted to DROPOUT from school")
                 
 if __name__ == '__main__':
     main()
