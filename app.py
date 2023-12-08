@@ -60,9 +60,11 @@ def main():
                 if cat_list[i][j] is range(len(cat_array[i])):
                     input_arr.append(encoder[j])
         
+        print(input_arr)
         num_arr = [first_term_gpa, second_term_gpa]
         pred_arr = np.array(num_arr + input_arr).reshape(1,-1)
-            
+        print(pred_arr.shape)
+        
         prediction = (model.predict(pred_arr) > 0.5).astype("int32")[0][0]
         
         if prediction == 1:

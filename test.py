@@ -9,3 +9,5 @@ num_arr = [4.0, 2.0]
 pred_arr = np.array(num_arr + input_arr).reshape(1,-1)
 prediction = (model.predict(pred_arr) > 0.5).astype("int32")[0][0]
 print(prediction)
+
+print(pred_arr.shape)
