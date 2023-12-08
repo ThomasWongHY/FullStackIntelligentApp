@@ -61,9 +61,9 @@ def main():
                     input_arr.append(encoder[j])
         
         num_arr = [first_term_gpa, second_term_gpa]
-        pred_arr = np.array(num_arr + input_arr).reshape(1,-1)              
-    
-        prediction = model.predict(pred_arr)
+        pred_arr = np.array(num_arr + input_arr).reshape(1,-1)
+            
+        prediction = (model.predict(pred_arr) > 0.5).astype("int32")[0][0]
         
         if prediction == 1:
             st.write("### The student is predicted to PERSIST in the program")
