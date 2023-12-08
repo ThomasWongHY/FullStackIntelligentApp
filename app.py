@@ -57,13 +57,11 @@ def main():
         for i in range(len(cat_list)):
             encoder = list(range(1, len(cat_list[i]) + 1))
             for j in range(len(cat_list[i])):
-                if cat_list[i][j] is range(len(cat_array[i])):
+                if cat_list[i][j] == cat_array[i]:
                     input_arr.append(encoder[j])
-        
-        print(input_arr)
         num_arr = [first_term_gpa, second_term_gpa]
         pred_arr = np.array(num_arr + input_arr).reshape(1,-1)
-        print(pred_arr.shape)
+        
         
         prediction = (model.predict(pred_arr) > 0.5).astype("int32")[0][0]
         
